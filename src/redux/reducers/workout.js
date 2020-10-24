@@ -1,26 +1,34 @@
 import { ADD_WORKOUT } from '../actionTypes';
 
 const initialState = {
-    title: '',
-    time: {
-        minute: '',
-        second: '',
+    1001: {
+        title: 'Pushups',
+        time: {
+            minute: '02',
+            second: '12',
+        },
+        reps: '30',
     },
-    reps: '',
 };
 
 const workoutReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_WORKOUT: {
+            const id =
+                Math.random().toString(36).substring(2, 15) +
+                Math.random().toString(36).substring(2, 15);
             const { title, minute, second, reps } = action.payload;
+            console.log('red title', title);
             return {
                 ...state,
-                title,
-                time: {
-                    minute,
-                    second,
+                [id]: {
+                    title,
+                    time: {
+                        minute,
+                        second,
+                    },
+                    reps,
                 },
-                reps,
             };
         }
         default:
