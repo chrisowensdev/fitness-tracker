@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addWorkout } from '../redux/actions';
 
+import styled from 'styled-components';
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+`;
+
 const AddWorkout = ({addWorkout}) => {
     const [title, setTitle] = useState("");
     const [minute, setMinute] = useState(0);
@@ -34,13 +43,22 @@ const AddWorkout = ({addWorkout}) => {
 
 
     return (
-        <>
-        <input type="text" onChange={e => _handleTitle(e.target.value)} value={title}/>
-        <input type="number" onChange={e => _handleMinutes(e.target.value)} value={minute}/>
-        <input type="number" onChange={e => _handleSeconds(e.target.value)} value={second}/>
-        <input type="number" onChange={e => _handleReps(e.target.value)} value={reps}/>
+        <Container>
+        <label>Workout
+            <input type="text" onChange={e => _handleTitle(e.target.value)} value={title}/>
+        </label>
+        <label>
+            <input type="number" onChange={e => _handleMinutes(e.target.value)} value={minute}/>
+        </label>
+        <label>
+            <input type="number" onChange={e => _handleSeconds(e.target.value)} value={second}/>
+        </label>
+        <label>Reps
+            <input type="number" onChange={e => _handleReps(e.target.value)} value={reps}/>
+        </label>
+        
         <button type="button" onClick={_handleClick}>Submit</button>
-        </>
+        </Container>
     )
 }
 

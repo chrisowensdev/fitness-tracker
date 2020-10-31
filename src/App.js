@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import Timer from './components/Timer';
-import AddWorkout from './components/AddWorkout';
+import Home from './components/Home';
 
 function App() {
     return (
         <div className='App'>
-            <Timer />
-            <AddWorkout />
+            <Home />
         </div>
     );
 }
